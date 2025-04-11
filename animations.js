@@ -1,14 +1,14 @@
 // Initialize animations when the document is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Animate the floating heart logo
-    const heartAnimation = anime({
+    const floatingHeartAnimation = anime({
         targets: '.floating-heart',
-        scale: [0.9, 1.1],
-        opacity: [0.8, 1],
-        easing: 'easeInOutSine',
-        duration: 1500,
+        translateY: ['-10px', '10px'],
+        duration: 2000,
+        direction: 'alternate',
         loop: true,
-        direction: 'alternate'
+        easing: 'easeInOutQuad',
+        autoplay: true
     });
 
     // Animate the main title and subtitle with a stagger effect
@@ -53,6 +53,20 @@ document.addEventListener('DOMContentLoaded', () => {
             translateY: [20, 0],
             duration: 1000
         }, '-=800');
+
+    // Title gradient animation
+    const gradientAnimation = anime({
+        targets: '.main-title',
+        background: [
+            'linear-gradient(45deg, #FF6B6B, #FF8E8E, #B490CA, #6FB1FC, #4ECDC4)',
+            'linear-gradient(45deg, #4ECDC4, #FF6B6B, #FF8E8E, #B490CA, #6FB1FC)',
+        ],
+        duration: 3000,
+        easing: 'linear',
+        direction: 'alternate',
+        loop: true,
+        autoplay: true
+    });
 
     // Add hover animation to tags
     const tags = document.querySelectorAll('.tag');
