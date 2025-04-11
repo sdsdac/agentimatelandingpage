@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentimate - The AI who animates your ideas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <span class="heart-logo"></span>
+            agentimate
+        </div>
+        <div class="nav-links">
+            <a href="#support">Support</a>
+            <a href="#launched">Launched</a>
+            <a href="#learn">Learn</a>
+            <div class="social-links">
+                <a href="#" class="social-icon twitter">𝕏</a>
+                <a href="#" class="social-icon reddit">Reddit</a>
+                <a href="#" class="social-icon linkedin">LinkedIn</a>
+                <a href="#" class="social-icon discord">Discord</a>
+            </div>
+            <a href="#signin" class="btn btn-signin">Sign in</a>
+            <a href="#signup" class="btn btn-signup">Sign up</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <div class="floating-heart" id="animatedHeart"></div>
+            <h1 class="main-title">Idea to design in seconds.</h1>
+            <p class="subtitle">Agentimate is your superhuman full stack designer.</p>
+            
+            <div class="input-container">
+                <input type="text" placeholder="Ask Agentimate to create a design that..." class="design-input">
+                <div class="input-actions">
+                    <button class="attach-btn">Attach</button>
+                    <button class="import-btn">Import</button>
+                    <button class="public-btn">Public</button>
+                </div>
+            </div>
+
+            <div class="preview-window">
+                <div class="preview-header">
+                    <span class="preview-title">Live Preview</span>
+                    <div class="preview-controls">
+                        <button class="control-btn play-btn">▶</button>
+                        <button class="control-btn reset-btn">↺</button>
+                    </div>
+                </div>
+                <div class="preview-canvas">
+                    <div class="preview-placeholder">
+                        <span class="preview-text">Your animation will appear here...</span>
+                        <div class="preview-dots"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="suggestion-tags">
+                <button class="tag">Brand identity</button>
+                <button class="tag">Social media assets</button>
+                <button class="tag">Landing page</button>
+                <button class="tag">UI Components</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <p class="stat-text">500,000+ designers are building with Agentimate</p>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html> 
