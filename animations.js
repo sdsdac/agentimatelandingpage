@@ -1,5 +1,107 @@
+// Instruction demonstration sequence
+const instructions = [
+    "Create a minimalist logo design...",
+    "Design a modern landing page...",
+    "Create social media graphics...",
+    "Design a mobile app interface...",
+    "Create a brand identity system..."
+];
+
+let currentInstruction = 0;
+const inputElement = document.querySelector('.design-input');
+
+function cycleInstructions() {
+    // Clear the input
+    inputElement.value = '';
+    
+    // Type out the next instruction
+    const instruction = instructions[currentInstruction];
+    let i = 0;
+    const typingInterval = setInterval(() => {
+        if (i < instruction.length) {
+            inputElement.value += instruction.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);
+            // Wait before clearing and moving to next instruction
+            setTimeout(() => {
+                currentInstruction = (currentInstruction + 1) % instructions.length;
+                cycleInstructions();
+            }, 3000);
+        }
+    }, 100);
+}
+
+// Preview window animations
+const previewWindow = document.querySelector('.preview-window');
+const previewCanvas = document.querySelector('.preview-canvas');
+const previewPlaceholder = document.querySelector('.preview-placeholder');
+
+// Animation sequence
+const animations = [
+    {
+        name: "Rotate",
+        animate: () => {
+            anime({
+                targets: previewCanvas,
+                rotate: '360deg',
+                duration: 2000,
+                easing: 'easeInOutQuad'
+            });
+        }
+    },
+    {
+        name: "Scale",
+        animate: () => {
+            anime({
+                targets: previewCanvas,
+                scale: [1, 1.2, 1],
+                duration: 1500,
+                easing: 'easeInOutQuad'
+            });
+        }
+    },
+    {
+        name: "Shake",
+        animate: () => {
+            anime({
+                targets: previewCanvas,
+                translateX: [0, 20, -20, 20, -20, 0],
+                duration: 1000,
+                easing: 'easeInOutQuad'
+            });
+        }
+    },
+    {
+        name: "Fade",
+        animate: () => {
+            anime({
+                targets: previewCanvas,
+                opacity: [1, 0.5, 1],
+                duration: 1500,
+                easing: 'easeInOutQuad'
+            });
+        }
+    }
+];
+
+let currentAnimation = 0;
+
+function cycleAnimations() {
+    const animation = animations[currentAnimation];
+    previewPlaceholder.textContent = `Demonstrating: ${animation.name} effect...`;
+    
+    animation.animate();
+    
+    currentAnimation = (currentAnimation + 1) % animations.length;
+    setTimeout(cycleAnimations, 3000);
+}
+
 // Initialize animations when the document is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    cycleInstructions();
+    cycleAnimations();
+
     // Animate the floating heart logo
     const heartAnimation = anime({
         targets: '.floating-heart',
@@ -163,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animatePlaceholder();
 
     // Preview window functionality
-    const previewCanvas = document.querySelector('.preview-canvas');
     const playButton = document.querySelector('.play-btn');
     const resetButton = document.querySelector('.reset-btn');
     let currentAnimation = null;
